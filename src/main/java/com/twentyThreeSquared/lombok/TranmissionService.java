@@ -29,10 +29,10 @@ public class TranmissionService {
     public void run() throws Exception {
         LOGGER.info("Starting {}", TranmissionService.class);
 
-        NewsPost newsPost = new NewsPost.Builder()
-                .withCreatorId(UUID.randomUUID())
-                .withRecipientIds(Collections.singletonList(UUID.randomUUID()))
-                .withText("This is an exciting news post!")
+        NewsPost newsPost = NewsPost.builder()
+                .creatorId(UUID.randomUUID())
+                .recipientIds(Collections.singletonList(UUID.randomUUID()))
+                .text("This is an exciting news post!")
                 .build();
 
         sender.send(serialize(newsPost));
